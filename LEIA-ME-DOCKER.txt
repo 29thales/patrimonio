@@ -1,0 +1,56 @@
+╔══════════════════════════════════════════════════════════╗
+║         PATRIMONIX v3 — INSTRUÇÕES DOCKER                ║
+╚══════════════════════════════════════════════════════════╝
+
+ESTRUTURA DESTA PASTA
+──────────────────────
+Coloque estes arquivos na raiz do seu projeto patrimonix-v3:
+
+  patrimonix-v3/
+  ├── Dockerfile           ← copiar aqui
+  ├── docker-compose.yml   ← copiar aqui
+  ├── .dockerignore        ← copiar aqui
+  ├── data/                ← copiar aqui (seus dados ficam nesta pasta)
+  │   ├── patrimonios.json
+  │   ├── funcionarios.json
+  │   ├── notas_fiscais.json
+  │   ├── usuarios.json
+  │   └── tokens.json
+  ├── server.js            ← já existe no seu projeto
+  ├── package.json         ← já existe no seu projeto
+  └── public/              ← já existe no seu projeto
+      └── index.html
+
+ATENÇÃO: Se você já tem dados na pasta data/ do seu projeto,
+NÃO substitua os arquivos .json — eles contêm seus dados!
+Apenas copie Dockerfile, docker-compose.yml e .dockerignore.
+
+──────────────────────────────────────────────────────────
+COMANDOS — execute dentro da pasta patrimonix-v3
+──────────────────────────────────────────────────────────
+
+1. CONSTRUIR A IMAGEM (apenas na primeira vez ou após mudanças):
+   docker compose build
+
+2. INICIAR O SERVIDOR:
+   docker compose up -d
+
+3. VERIFICAR SE ESTÁ RODANDO:
+   docker compose ps
+
+4. ACESSAR NO NAVEGADOR:
+   http://localhost:3000
+
+5. LOGIN PADRÃO:
+   Usuário: admin.ti
+   Senha:   ti.server3945
+
+──────────────────────────────────────────────────────────
+OUTROS COMANDOS ÚTEIS
+──────────────────────────────────────────────────────────
+
+  Parar o servidor:       docker compose down
+  Reiniciar:              docker compose restart
+  Ver erros/logs:         docker compose logs --tail=50
+  Ver logs em tempo real: docker compose logs -f
+
