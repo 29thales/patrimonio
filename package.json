@@ -1,0 +1,8 @@
+{
+  "name": "patrimonix-v3",
+  "version": "3.0.0",
+  "description": "Gestão de Patrimônio com Funcionários, NF e Importação XLSX",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=14.0.0" }
+}

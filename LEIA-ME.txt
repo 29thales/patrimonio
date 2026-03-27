@@ -1,0 +1,123 @@
+╔═══════════════════════════════════════════════════════════╗
+║            PATRIMONIX v3 · GUIA COMPLETO                   ║
+╚═══════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ PRÉ-REQUISITO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Node.js versão 14 ou superior
+  Download: https://nodejs.org
+  Verificar: node --version
+
+  ⚡ ZERO npm install necessário — sem dependências externas!
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ COMO INICIAR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. Extraia a pasta patrimonix-v3
+  2. Abra terminal dentro da pasta
+  3. Execute: node server.js
+  4. Acesse: http://localhost:3000
+     Outros dispositivos na rede: http://[IP_DO_SERVIDOR]:3000
+
+  Para parar: Ctrl+C no terminal
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ LOGIN PADRÃO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Login: admin.ti
+  Senha: ti.server3945
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ ORDEM RECOMENDADA DE USO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1️⃣  Importe ou cadastre FUNCIONÁRIOS
+       → Aba "Funcionários Ativos"
+       → Use "Importar XLSX" para importar planilha em massa
+
+  2️⃣  Cadastre as NOTAS FISCAIS dos notebooks
+       → Aba "Notas Fiscais"
+       → Informe: número, fornecedor, data, valor
+
+  3️⃣  Cadastre os PATRIMÔNIOS (Notebooks)
+       → Aba "Novo Cadastro"
+       → Digite o código do funcionário → sistema busca automaticamente
+       → Selecione ou informe o número da NF
+       → Preencha configurações técnicas
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ FUNCIONALIDADES v3
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ✅ FUNCIONÁRIOS
+     • Cadastro manual individual
+     • Importação em massa via planilha .xlsx
+     • Opção de inativar funcionários ausentes da planilha
+     • Visualização dos notebooks vinculados por funcionário
+
+  ✅ NOTAS FISCAIS
+     • Cadastro com número, fornecedor, data, valor
+     • Vinculação a notebooks
+     • Contagem de notebooks por NF
+
+  ✅ PATRIMÔNIOS (Notebooks)
+     • Campo "Código do Funcionário" com busca automática
+     • Preenchimento automático: nome, obra, cargo
+     • Campo "Nome da Obra" obrigatório
+     • Campo "Número da NF" com vinculação
+     • Busca por número de NF na listagem
+     • Status: EM USO/ESTOQUE/MANUTENÇÃO/DESCARTE/DOAÇÃO/RESERVA
+
+  ✅ RELACIONAMENTOS
+     • 1 funcionário → N notebooks
+     • 1 notebook → 1 funcionário ativo
+     • 1 notebook → 1 nota fiscal
+     • Dados exibidos juntos na tela de detalhes
+
+  ✅ CONTROLE DE ACESSO
+     • ADMIN: acesso total
+     • EDITOR: cadastra/edita, sem gerenciar usuários
+     • VIEWER: apenas visualiza, pode ser restrito por obra
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ ESTRUTURA DE ARQUIVOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  patrimonix-v3/
+  ├── server.js
+  ├── package.json
+  ├── LEIA-ME.txt
+  ├── MODELO_PLANILHA.txt    ← instruções para o Excel
+  ├── data/
+  │   ├── patrimonios.json
+  │   ├── funcionarios.json
+  │   ├── notas_fiscais.json
+  │   ├── usuarios.json
+  │   └── tokens.json
+  └── public/
+      └── index.html
+
+  Backup: copie a pasta data/ inteira.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ FORMATO DA PLANILHA XLSX (IMPORTAÇÃO)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Veja o arquivo MODELO_PLANILHA.txt para detalhes completos.
+
+  Colunas esperadas (linha 1 = cabeçalho):
+  • Código   → ID único do funcionário
+  • Nome     → Nome completo
+  • Cargo    → Função/cargo
+  • Obra     → Nome da obra ou unidade
+  • Status   → ATIVO ou INATIVO

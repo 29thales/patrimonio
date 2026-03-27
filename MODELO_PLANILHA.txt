@@ -1,0 +1,38 @@
+MODELO DE PLANILHA PARA IMPORTAÇÃO DE FUNCIONÁRIOS
+===================================================
+
+A planilha .xlsx deve conter uma aba com as seguintes colunas na PRIMEIRA linha (cabeçalho):
+
+┌─────────────────────┬──────────────────────┬──────────────┬──────────────────┬──────────┐
+│ Código              │ Nome                 │ Cargo        │ Obra             │ Status   │
+├─────────────────────┼──────────────────────┼──────────────┼──────────────────┼──────────┤
+│ 00101               │ João da Silva        │ Técnico TI   │ Obra Norte       │ ATIVO    │
+│ 00102               │ Maria Oliveira       │ Analista     │ Obra Sul         │ ATIVO    │
+│ 00103               │ Carlos Pereira       │ Coordenador  │ Obra Norte       │ ATIVO    │
+│ 00104               │ Ana Costa            │ Assistente   │ Obra Leste       │ INATIVO  │
+└─────────────────────┴──────────────────────┴──────────────┴──────────────────┴──────────┘
+
+REGRAS:
+• O sistema detecta automaticamente as colunas pelo nome do cabeçalho
+• Nomes aceitos para cada coluna:
+  - Código:  "Código", "Codigo", "Cod", "ID"
+  - Nome:    "Nome"
+  - Cargo:   "Cargo", "Função", "Funcao"
+  - Obra:    "Obra", "Unidade", "Setor", "Local"
+  - Status:  "Status", "Situação", "Situacao", "Ativo"
+
+• O campo "Código" é o ID único — usado para atualizar registros existentes
+• Status deve ser "ATIVO" ou "INATIVO"
+• Linhas vazias são ignoradas
+• O sistema NÃO diferencia maiúsculas/minúsculas nos cabeçalhos
+
+OPÇÃO "INATIVAR AUSENTES":
+• Se marcada, funcionários que estiverem no sistema mas NÃO estiverem
+  na planilha serão automaticamente marcados como INATIVO
+• Use com cuidado — recomendado apenas ao importar a lista completa da empresa
+
+APÓS IMPORTAR:
+• O campo "Obra" do funcionário será automaticamente sugerido 
+  ao cadastrar um notebook usando o código do funcionário
+• Um funcionário pode ter vários notebooks vinculados
+• Cada notebook só pode ter um funcionário ativo vinculado
